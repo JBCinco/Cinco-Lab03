@@ -6,19 +6,21 @@ int lightLevel = analogRead(A6);
 Serial.begin(9600);
 Serial.println(lightLevel);
 
-if(lightLevel >100){
+if(lightLevel < 100){
   Serial.println("It's Really Dark!");
+  pinMode(4, OUTPUT);
+  digitalWrite(4, HIGH);
 }
 
-else if(lightLevel >200){
+else if(lightLevel < 200){
   Serial.println("It's dim in here!");
 }
 
-else if(lightLevel >700){
+else if(lightLevel < 700){
   Serial.println("It's a little bright!");
 }
 
-else if(lightLevel >1024){
+else if(lightLevel < 1024){
   Serial.println("It's Really Bright!");
 }
 
